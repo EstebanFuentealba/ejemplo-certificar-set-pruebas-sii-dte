@@ -6,3 +6,8 @@ Pruebas completas
 ===================
 
 Puedes revisar y probar [CertificateSET.java](https://github.com/EstebanFuentealba/ejemplo-certificar-set-pruebas-sii-dte/blob/master/src/net/estebanfuentealba/dte/certificate/CertificateSET.java) , éste contiene un ejemplo completo de como timbrar, firmar y generar archivos para luego subirlos al entorno de pruebas
+
+
+PD
+===================
+Me debes una chela
