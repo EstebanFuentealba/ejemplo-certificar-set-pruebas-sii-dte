@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DTE version="1.0">
+ <Documento ID="N150">
+    <Encabezado>
+        <IdDoc>
+            <TipoDTE>34</TipoDTE>
+            <Folio>150</Folio>
+            <FchEmis>2010-10-14</FchEmis>
+            <FchCancel>2009-12-03</FchCancel>
+        </IdDoc>
+        <Emisor>
+            <RUTEmisor>66666666-6</RUTEmisor>
+            <RznSoc>Acme Inc</RznSoc>
+            <GiroEmis>Divertimento</GiroEmis>
+            <Acteco>61911</Acteco>
+            <Sucursal>Oficina Mulandia</Sucursal>
+            <CdgSIISucur>1412</CdgSIISucur>
+            <DirOrigen>Fantasia 2000</DirOrigen>
+            <CmnaOrigen>Santiago</CmnaOrigen>
+            <CiudadOrigen>Santiago</CiudadOrigen>
+        </Emisor>
+        <Receptor>
+            <RUTRecep>55555555-5</RUTRecep>
+            <RznSocRecep>Warner Brothers</RznSocRecep>
+            <GiroRecep>Divertimento</GiroRecep>
+            <Contacto>Pinky y Cerebro</Contacto>
+            <DirRecep>Embajada USA</DirRecep>
+            <CmnaRecep>Vitacura</CmnaRecep>
+            <CiudadRecep>Santiago</CiudadRecep>
+        </Receptor>
+     </Encabezado>
+     <Totales>
+     <MntExe></MntExe>
+     <MntTotal></MntTotal>
+     <TasaIVA></TasaIVA>
+     <IVA></IVA>
+     </Totales>
+     <Detalle>
+        <NroLinDet>1</NroLinDet>
+        <NmbItem>Trampa correcaminos</NmbItem>
+        <QtyItem>2</QtyItem>
+        <PrcItem>350000</PrcItem>
+        <MontoItem>700000</MontoItem>
+     </Detalle>
+</Documento>
+</DTE>
+
+
