@@ -1,6 +1,6 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Autor: Esteban Fuentealba (2010)
+ * Email: efuentealba@json.cl
  */
 
 package net.estebanfuentealba.dte.certificate;
@@ -69,10 +69,7 @@ import siidte.Example.CreaFactura;
 import siidte.Example.GeneraEnvio;
 import tests.VARIABLES_GLOBALES;
 
-/**
- *
- * @author EstebanFuentealba
- */
+
 public class CertificateSET {
         private static String PLANTILLA_DOCUMENTO = "C:/Users/Esteban/Documents/My Dropbox/ATL DTE/DTE_OpenLibs/ejemplos/plantilla_documento.xml";
 	private static String RESULT_FACTURA = "D:/ATL/CERT/Factura.xml";
@@ -143,7 +140,7 @@ public class CertificateSET {
             /* credito */
             //OK
             private static int folioCaso86424_8 = 14; //OK
-        
+
         public static void main(String[] args)  {
 
         try {
@@ -172,7 +169,7 @@ public class CertificateSET {
              * TODO CERTIFICADO
              */
             ArrayList<String> rutasFacturas = new ArrayList<String>();
-            
+
             int NroLinRef = 1;
             Totales totales = null;
             ArrayList<Referencia> referencias;
@@ -242,7 +239,7 @@ public class CertificateSET {
             referencia.setCodRef(BigInteger.valueOf(3));
             //FechaRef: Es la fecha de emisión del documento al que se hace referencia, el formato de la fecha es “AAAA-MM-DD” (año, mes, día), por ejemplo:
             referencia.xsetFchRef(FechaType.Factory.newValue(Utilities.fechaFormat.format(new Date())));
-            
+
             referencias.add(referencia);
             //##    TOTALES
             totales = Totales.Factory.newInstance();
@@ -624,7 +621,7 @@ public class CertificateSET {
             Logger.getLogger(CertificateSET.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public static String crearFactura( int tipoDocumento,
                                 ArrayList<Referencia> referencias,
                                 Receptor receptor,
@@ -634,7 +631,7 @@ public class CertificateSET {
                                 String cafFile) throws XmlException, IOException, TimbreException, NoSuchAlgorithmException, SignatureException, InvalidKeyException, NoSuchPaddingException, InvalidKeySpecException, InvalidAlgorithmParameterException, KeyStoreException, CertificateException, UnrecoverableKeyException, KeyException, MarshalException, XMLSignatureException, SAXException, ParserConfigurationException {
 
                 String resultSave = "ResultadoFactura-"+(new Date()).getTime()+"-"+Math.round((Math.random()*1000))+".xml";
-                
+
                 // Leo Autorizacion
 		// Debo meter el namespace porque SII no lo genera
 		HashMap<String, String> namespaces = new HashMap<String, String>();
@@ -654,7 +651,7 @@ public class CertificateSET {
                 PrivateKey key          = VARIABLES_GLOBALES.getPrivateKey();
                 X509Certificate cert    = VARIABLES_GLOBALES.getX509Certificate();
 
-                
+
 		// Agrego al doc datos inventados para pruebas
                // IdDoc
 		IdDoc iddoc = doc.getDTE().getDocumento().getEncabezado().addNewIdDoc();
@@ -688,7 +685,7 @@ public class CertificateSET {
 		// Totales
                 if(totales != null)
                     doc.getDTE().getDocumento().getEncabezado().setTotales(totales);
-                
+
 		// Agrego detalles
                 if(detalles.size()>0)
                     doc.getDTE().getDocumento().setDetalleArray((Detalle[]) detalles.toArray(new Detalle[detalles.size()]));
@@ -790,7 +787,7 @@ public class CertificateSET {
         return recps.xmlText();
     }
     public static void crearLibroCompraVenta() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyException, MarshalException, XMLSignatureException, SAXException, IOException, ParserConfigurationException, XmlException, KeyStoreException, CertificateException, UnrecoverableKeyException {
-        
+
             LibroCompraVentaDocument libroDocument = LibroCompraVentaDocument.Factory.parse(new FileInputStream(PLANTILLA_LIBRO_ATL));
             XmlCursor cursor = libroDocument.newCursor();
             if (cursor.toFirstChild()) {
@@ -836,7 +833,7 @@ public class CertificateSET {
             detalle.setTpoDoc(BigInteger.valueOf(TipoDocumento.NOTA_DE_CREDITO_ELECTRONICA));
             detalle.setNroDoc(folioCaso86424_2);
             detalle.xsetFchDoc(LibroCompraVentaDocument.LibroCompraVenta.EnvioLibro.Detalle.FchDoc.Factory.newValue("2010-11-12"));
-            
+
             detalle.setMntExe(566);
             detalle.setMntTotal(566);
             //## AGREGA
@@ -846,7 +843,7 @@ public class CertificateSET {
             detalle.setTpoDoc(BigInteger.valueOf(TipoDocumento.FACTURA_NO_AFECTA_O_EXENTA_ELECTRONICA));
             detalle.setNroDoc(folioCaso86424_3);
             detalle.xsetFchDoc(LibroCompraVentaDocument.LibroCompraVenta.EnvioLibro.Detalle.FchDoc.Factory.newValue("2010-11-12"));
-            
+
             detalle.setMntExe(359687);
             detalle.setMntTotal(359687);
             //## AGREGA
@@ -867,7 +864,7 @@ public class CertificateSET {
             detalle.setTpoDoc(BigInteger.valueOf(TipoDocumento.NOTA_DE_DEBITO_ELECTRONICA));
             detalle.setNroDoc(folioCaso86424_5);
             detalle.xsetFchDoc(LibroCompraVentaDocument.LibroCompraVenta.EnvioLibro.Detalle.FchDoc.Factory.newValue("2010-11-12"));
-            
+
             detalle.setMntExe(0);
             detalle.setAnulado(LibroCompraVentaDocument.LibroCompraVenta.EnvioLibro.Detalle.Anulado.Enum.forString("A"));
             detalle.setMntTotal(0);
@@ -878,7 +875,7 @@ public class CertificateSET {
             detalle.setTpoDoc(BigInteger.valueOf(TipoDocumento.FACTURA_NO_AFECTA_O_EXENTA_ELECTRONICA));
             detalle.setNroDoc(folioCaso86424_6);
             detalle.xsetFchDoc(LibroCompraVentaDocument.LibroCompraVenta.EnvioLibro.Detalle.FchDoc.Factory.newValue("2010-11-12"));
-            
+
             detalle.setMntExe(435042);
             detalle.setMntTotal(435042);
             //## AGREGA
@@ -888,7 +885,7 @@ public class CertificateSET {
             detalle.setTpoDoc(BigInteger.valueOf(TipoDocumento.NOTA_DE_CREDITO_ELECTRONICA));
             detalle.setNroDoc(folioCaso86424_7);
             detalle.xsetFchDoc(LibroCompraVentaDocument.LibroCompraVenta.EnvioLibro.Detalle.FchDoc.Factory.newValue("2010-11-12"));
-            
+
             detalle.setMntExe(301113);
             detalle.setMntTotal(301113);
             //## AGREGA
@@ -898,7 +895,7 @@ public class CertificateSET {
             detalle.setTpoDoc(BigInteger.valueOf(TipoDocumento.NOTA_DE_DEBITO_ELECTRONICA));
             detalle.setNroDoc(folioCaso86424_8);
             detalle.xsetFchDoc(LibroCompraVentaDocument.LibroCompraVenta.EnvioLibro.Detalle.FchDoc.Factory.newValue("2010-11-12"));
-            
+
             detalle.setMntExe(301296);
             detalle.setMntTotal(301296);
             //## AGREGA
@@ -916,7 +913,7 @@ public class CertificateSET {
             opts = new XmlOptions();
             opts.setCharacterEncoding("ISO-8859-1");
             libroDocument.save(new File(CertificateSET.RESULT_LIBRO_CV), opts);
-        
+
 
     }
   /*
